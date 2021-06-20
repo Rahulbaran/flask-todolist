@@ -1,9 +1,5 @@
 #dependencies
 node_modules
 
-
-#python packages
-virtual
-
 #lock-json file
 package-lock.json
