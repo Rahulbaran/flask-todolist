@@ -4,7 +4,10 @@
   "description": "Todolist app using flask",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "compile-layout":"node-sass static/scss/layout.scss static/css/layout.scss",
+    "compile-home":"node-sass static/scss/home.scss static/css/home.scss",
+    "compile-login":"node-sass static/scss/login.scss static/css/login.scss",
+    "compile-register":"node-sass static/scss/register.scss static/css/register.scss"
   },
   "repository": {
     "type": "git",

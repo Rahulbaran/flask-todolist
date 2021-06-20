@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Rahul Kumar">
+    <meta name="copyright" content="reserved">
+
+    <title>{{title}}</title>
+
+    <!-- custom style sheet -->
+    <link rel="stylesheet" href="{{url_for('static',filename='css/layout.css')}}">
+
+    <!-- block for adding more style sheets  -->
+    {% block stylesheets %}
+    {% endblock %}
+</head>
+<body>
+    <header class="header">
+        <nav>
+            <ul class="navigatin__bar">
+                <li><a href="{{url_for('home')}}" class="navigation__link">Home</a></li>
+                <li><a href="{{url_for('register')}}" class="navigation__link">Register</a></li>
+                <li><a href="{{url_for('login')}}" class="navigation__link">Login</a></li>              
+            </ul>
+        </nav>
+    </header>
+
+
+
+    {% block body %}
+    {% endblock %}
+    {% block scripts %}
+    {% endblock %}
+</body>
+</html>
