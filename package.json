@@ -1,0 +1,23 @@
+{
+  "name": "flask-todolist",
+  "version": "1.0.0",
+  "description": "Todolist app using flask",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Rahulbaran/flask-todolist.git"
+  },
+  "author": "Rahul Baran",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Rahulbaran/flask-todolist/issues"
+  },
+  "homepage": "https://github.com/Rahulbaran/flask-todolist#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "node-sass": "^6.0.0"
+  }
+}
