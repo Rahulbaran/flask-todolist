@@ -11,6 +11,7 @@ app = Flask(__name__)
 app.config['SECRET_KEY'] = urandom(16)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///items.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
+app.config['MAX_CONTENT_LENGTH'] = 2 * 1024 * 1024
 db = SQLAlchemy(app)
 bcrypt = Bcrypt(app)
 login_manager = LoginManager(app)

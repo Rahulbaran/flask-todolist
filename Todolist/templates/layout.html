@@ -36,7 +36,7 @@
                 <li><a href="{{url_for('list')}}" class="navigation__link">List</a></li>
                 <li class="navigation__tab">
                     <div class="Profile__picture__container">
-                        <img src="../static/Images/default.png" alt="Profile Picture" class="user__profile">
+                        <img src="{{url_for('static',filename='Images/'+current_user.image_file)}}" alt="Profile Picture" class="user__profile">
                     </div>
                     <i class="fa fa-angle-down"></i>
                     <ul class="nav__bar">

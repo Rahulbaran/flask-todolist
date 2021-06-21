@@ -1,3 +1,5 @@
+import os
+import secrets
 from flask import render_template,  url_for, flash, redirect, request
 from flask_login import login_user, logout_user, current_user, login_required
 from Todolist import app, db, bcrypt
@@ -52,14 +54,40 @@ def logout():
     return redirect(url_for('home'))
 
 
-@app.route('/profile/',methods = ['GET','POST'])
+# function to save profile picture
+def show_picture(pic_data):
+    random_hex = secrets.token_hex(8)
+    _ , file_ext = os.path.splitext(pic_data.filename)
+    picture = random_hex + file_ext
+    path = os.path.join(app.root_path,'static','Images',picture)
+    pic_data.save(path)
+    return picture
+
+
+@app.route('/profile/', methods = ['GET','POST'])
 @login_required
 def profile():
     form = Profile()
-    return render_template('profile.html',title = 'Profile', form = form)
+    if form.validate_on_submit():
+        if form.picture.data:
+            image = show_picture(form.picture.data)
+            current_user.image_file = image
+        current_user.username = form.username.data
+        current_user.email = form.email.data
+        current_user.user_info = form.userInfo.data
+        db.session.commit()
+        flash('Your account has been updated','info')
+        return redirect(url_for('profile'))
+    elif request.method == "GET":
+        form.username.data = current_user.username
+        form.email.data = current_user.email
+        form.userInfo.data = current_user.user_info
+    image = url_for('static',filename = 'Images/'+current_user.image_file)
+    return render_template('profile.html',title = 'Profile', form = form, image = image)
 
 
 @app.route('/list/', methods = ['GET','POST'])
 @login_required
 def list():
+    
     return render_template('list.html', title = 'Add Items')

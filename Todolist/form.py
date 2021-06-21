@@ -1,6 +1,8 @@
 from flask_wtf import FlaskForm
+from flask_wtf.file import FileAllowed, FileField
 from wtforms import SubmitField, StringField, PasswordField, BooleanField, TextAreaField
 from wtforms.validators import EqualTo, Email, Length, InputRequired, ValidationError
+from flask_login import current_user
 from Todolist.models import User
 
 
@@ -62,21 +64,27 @@ class Profile(FlaskForm):
     email = StringField(label = "Email", validators=[InputRequired(), 
                         Length(min=13,max=60,message="email should contain atleast 13 characters"),
                         Email(message = "email address is not valid")])
-    userInfo = TextAreaField(label = "About yourself", validators = [InputRequired(), Length(max = 1000, message = "maximum 1000 characters are allowed")])
+    userInfo = TextAreaField(label = "About yourself", validators = [InputRequired(), Length(max = 1000, 
+                                message = "maximum 1000 characters are allowed")])
+    picture = FileField(label = "Upload profile picture", validators = [FileAllowed(['gif','svg','jpg','jpeg','png'],
+                        message = "file with extension gif, svg, jpg, jpeg & png are only allowed")])
     update = SubmitField('Update')
+
 
     # custom validators 
     def validate_username(self,username):
-        invalidChar = '!@#$%^&*()+_=`~?><,./"\'\\:;}]{[|'
-        user = User.query.filter_by(username = username.data).first()
-        if user:
-            raise ValidationError('username is already taken, try different username')
-        for char in username.data:
-            if char in invalidChar:
-                raise ValidationError('Username is invalid')
+        if username.data != current_user.username:
+            invalidChar = '!@#$%^&*()+_=`~?><,./"\'\\:;}]{[|'
+            user = User.query.filter_by(username = username.data).first()
+            if user:
+                raise ValidationError('username is already taken, try different username')
+            for char in username.data:
+                if char in invalidChar:
+                    raise ValidationError('Username is invalid')
 
     def validate_email(self,email):
-        user = User.query.filter_by(email = email.data).first()
-        if user:
-            raise ValidationError('user with this email is already registered, try different email')
+        if email.data != current_user.email:
+            user = User.query.filter_by(email = email.data).first()
+            if user:
+                raise ValidationError('user with this email is already registered, try different email')
 

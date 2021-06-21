@@ -3,4 +3,124 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center; }
+  align-items: center;
+  padding: 4em 1em; }
+
+.about__user {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2em;
+  text-align: center; }
+
+.user__profile__container {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  margin-bottom: 1.5em; }
+  .user__profile__container img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    display: block;
+    object-fit: cover;
+    filter: drop-shadow(2px 3px 2px rgba(0, 0, 0, 0.15)) drop-shadow(-2px -3px 2px rgba(0, 0, 0, 0.15)); }
+
+.user__other__details {
+  font-family: 'Lato',sans-serif;
+  line-height: 1.3; }
+
+.user__name {
+  font-size: 2.3rem;
+  font-family: 'KoHo',sans-serif;
+  color: #d8860a; }
+
+.user__email {
+  font-size: 1.15rem;
+  font-weight: 600; }
+
+.user__info {
+  margin-top: 1em;
+  font-size: 1.3rem;
+  margin-bottom: 3.5em; }
+
+.form__section {
+  font-family: 'lato',sans-serif; }
+
+.form {
+  width: 350px;
+  margin: 0 auto;
+  margin-bottom: .5em;
+  padding: .9em;
+  background-color: #d2d9e0;
+  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4);
+  border-radius: 5px; }
+  .form legend {
+    text-align: center;
+    font-size: 1.8rem;
+    font-family: 'Koho',sans-serif;
+    margin-bottom: 1em;
+    font-weight: 600;
+    line-height: 1;
+    color: #d8860a; }
+  .form__group {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: flex-start;
+    margin-bottom: .5em; }
+    .form__group label {
+      font-size: 1.2rem; }
+    .form__group input, .form__group textarea {
+      width: 100%;
+      padding: .55em .45em;
+      font-size: 1.05rem;
+      font-family: 'lato',sans-serif;
+      border: 1px solid #94949c;
+      transition: transform 200ms linear;
+      border-radius: 5px; }
+      .form__group input:focus, .form__group textarea:focus {
+        outline: 0.1em solid #021227; }
+      .form__group input:active, .form__group textarea:active {
+        transform: translateY(-2px); }
+    .form__group textarea {
+      height: 200px; }
+  .form__file__group {
+    margin: .5em 0;
+    font-size: 1.15rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start; }
+  .form__submit {
+    margin-top: 1em; }
+    .form__submit input {
+      font-family: 'lato',sans-serif;
+      font-size: 1.1rem;
+      padding: .6em 1.7em;
+      border: none;
+      background-color: #7d7f8b;
+      box-shadow: 2px 2px 1px rgba(0, 0, 0, 0.65);
+      color: #fff;
+      font-weight: 600;
+      letter-spacing: .5px; }
+      .form__submit input:hover, .form__submit input:focus {
+        opacity: .85;
+        cursor: pointer; }
+
+@media screen and (min-width: 600px) {
+  .form {
+    width: 500px;
+    padding: 1.2em; } }
+
+.field__error {
+  border-color: red !important; }
+  .field__error:focus {
+    outline-color: red !important; }
+
+.error__msg {
+  font-size: .76rem;
+  color: red;
+  line-height: 1.4;
+  font-weight: 500; }

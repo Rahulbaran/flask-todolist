@@ -8,34 +8,63 @@
 
         <section class="about__user">
             <div class="user__profile__container">
-                <img src="../static/Images/default.png" alt="User Profile" class="profile__image">
+                <img src="{{image}}" alt="User Profile" class="profile__image">
             </div>
             <div class="user__other__details">
-                <h2>{{current_user.username}}</h2>
-                <p>{{current_user.email}}</p>
-                <p>{{current_user.user_info}}</p>
+                <h2 class="user__name">{{current_user.username}}</h2>
+                <p class="user__email">{{current_user.email}}</p>
+                <p class="user__info">{{current_user.user_info}}</p>
             </div>
         </section> 
 
         <section class="form__section">
-            <form autocomplete="off" method="POST" class="form">
+            <form autocomplete="off" method="POST" class="form" enctype="multipart/form-data">
 
                 {{form.hidden_tag()}}
                 <legend>Update Profile</legend>
 
                 <div class="form__group">
                     {{form.username.label()}}
-                    {{form.username()}}
+                    {% if form.username.errors %}
+                        {{form.username(class="field__error")}}
+                        {% for error in form.username.errors %}
+                            <span class="error__msg">{{error}}</span>
+                        {% endfor %}
+                    {% else %}
+                        {{form.username(placeholder="enter new  username")}}
+                    {% endif %}
                 </div>
 
                 <div class="form__group">
                     {{form.email.label()}}
-                    {{form.email()}}
+                    {% if form.email.errors %}
+                        {{form.email(class="field__error")}}
+                        {% for error in form.email.errors %}
+                            <span class="error__msg">{{error}}</span>
+                        {% endfor %}
+                    {% else %}
+                        {{form.email(placeholder="enter new email address")}}
+                    {% endif %}
                 </div>
 
                 <div class="form__group">
                     {{form.userInfo.label()}}
                     {{form.userInfo()}}
+                    {% if form.userInfo.errors %}
+                        {% for error in form.userInfo.errors %}
+                            <span class="error__msg">{{error}}</span>
+                        {% endfor %}
+                    {% endif %}
+                </div>
+
+                <div class="form__file__group">
+                    {{form.picture.label()}}
+                    {{form.picture()}}
+                    {% if form.picture.errors %}
+                        {% for error in form.picture.errors %}
+                            <span class="error__msg">{{error}}</span>
+                        {% endfor %}
+                    {% endif %}
                 </div>
 
                 <div class="form__submit">
