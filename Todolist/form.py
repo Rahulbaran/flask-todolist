@@ -88,3 +88,8 @@ class Profile(FlaskForm):
             if user:
                 raise ValidationError('user with this email is already registered, try different email')
 
+
+# form to add item
+class ItemForm(FlaskForm):
+    item = StringField(validators = [InputRequired()])
+    add_item = SubmitField(label = "Add Item")

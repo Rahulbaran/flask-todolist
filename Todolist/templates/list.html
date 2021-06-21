@@ -1,8 +1,46 @@
 {% extends 'layout.html' %}
 {% block stylesheets %}
+    <link rel="stylesheet" href="{{url_for('static',filename='css/list.css')}}">
 {% endblock %}
 
 {% block body %}
+    <main class="list--main">
+
+        <section class="list__container__title">
+            <h1>List Items</h1>
+        </section>
+
+        <form class="list__item__input__form" method="post" autocomplete="off">
+
+            {{form.hidden_tag()}}
+            {{form.item(placeholder="add new items")}}
+            {{form.add_item()}}
+
+        </form>
+
+        <table class="list__items__table">
+            <thead>
+                <tr>
+                    <th>Item name</th>
+                    <th>Date added</th>
+                    <th>Delete Item</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in items %}
+                <tr>
+                    <td>{{item.item_name}}</td>
+                    <td>{{item.date_posted.strftime('%Y/%m/%d')}}</td>
+                    <td>
+                        <form action="{{url_for('delete_item',item_id=item.id)}}" method="post">
+                            <input type="submit" value="Delete" class="item__delete__btn">
+                        </form>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </main>
 {% endblock %}
 
 {% block scripts %}

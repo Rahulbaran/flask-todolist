@@ -1,0 +1,59 @@
+.list--main {
+  background-color: #fff;
+  padding: 2em .5em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; }
+
+.list__container__title {
+  margin-bottom: 3em;
+  color: #ff5e00; }
+  .list__container__title h1 {
+    font-size: 2.2rem;
+    font-family: 'KoHo',sans-serif;
+    text-decoration: 3px underline currentColor; }
+
+.list__item__input__form {
+  margin-bottom: 2.5em; }
+  .list__item__input__form input {
+    font-family: 'Lato',sans-serif;
+    border: none;
+    padding: .5em; }
+  .list__item__input__form input[type="text"] {
+    font-size: 1.1rem;
+    margin-right: .8em;
+    border-bottom: 2px solid #ff5e00; }
+    .list__item__input__form input[type="text"]:focus {
+      outline: 2px dashed #afa4a4; }
+  .list__item__input__form input[type="submit"] {
+    font-size: 1.05rem;
+    background-color: #8f8f96;
+    color: #fff;
+    box-shadow: 2px 2px 1px rgba(0, 0, 0, 0.5);
+    font-weight: 600;
+    letter-spacing: .6px; }
+    .list__item__input__form input[type="submit"]:hover, .list__item__input__form input[type="submit"]:focus {
+      opacity: .8;
+      cursor: pointer; }
+
+.list__items__table {
+  text-align: Center; }
+  .list__items__table th {
+    font-size: 1.15rem;
+    padding: 0 1em; }
+  .list__items__table td {
+    padding: .2em .6em;
+    font-size: 1rem; }
+
+.item__delete__btn {
+  padding: .2em .3em;
+  font-size: .9rem;
+  font-family: 'Poppins',sans-serif;
+  font-weight: 600;
+  background-color: #d8d8d8;
+  border: none;
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); }
+  .item__delete__btn:hover, .item__delete__btn:focus {
+    opacity: .85;
+    cursor: pointer; }

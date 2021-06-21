@@ -1,10 +1,11 @@
 import os
 import secrets
-from flask import render_template,  url_for, flash, redirect, request
+from flask import render_template,  url_for, flash, redirect, request, abort
 from flask_login import login_user, logout_user, current_user, login_required
 from Todolist import app, db, bcrypt
-from Todolist.form import Register, Login, Profile
+from Todolist.form import Register, Login, Profile, ItemForm
 from Todolist.models import User, Item
+
 
 
 
@@ -89,5 +90,26 @@ def profile():
 @app.route('/list/', methods = ['GET','POST'])
 @login_required
 def list():
-    
-    return render_template('list.html', title = 'Add Items')
+    form = ItemForm()
+    if form.validate_on_submit():
+        item = Item(item_name = form.item.data, client = current_user)
+        db.session.add(item)
+        db.session.commit()
+        flash('A new item has been added','info')
+        return redirect(url_for('list'))
+    items = Item.query.filter_by(user_id = current_user.id).all()
+    return render_template('list.html', title = 'Add Items', form = form, items = items)
+
+
+
+
+@app.route('/list/item-<int:item_id>',methods = ['POST','GET']) 
+@login_required
+def delete_item(item_id):
+    item = Item.query.get_or_404(item_id)
+    if current_user.id != item.user_id:
+        abort(403)
+    db.session.delete(item)
+    db.session.commit()
+    flash('One item has been deleted','info')
+    return redirect(url_for('list'))
