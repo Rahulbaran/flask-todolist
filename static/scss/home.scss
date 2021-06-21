@@ -1,0 +1,38 @@
+$font-heading:'KoHo',sans-serif;
+$font-backup:'lato',sans-serif;
+$color-white:#fff;
+$font-weight: (
+    'regular':400,
+    'medium':500,
+    'semi':600,
+    'bold':700
+);
+
+
+.main--section {
+    background:linear-gradient(-190deg,rgba(50, 58, 87, 0.886),rgba(0, 0, 0, 0.94),rgba(64, 74, 82, 0.957)),  url('../Images/3327597.jpg');
+    background-size:cover;
+    background-repeat:no-repeat;
+    background-position:center;
+    height:90vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    
+}
+.about__app {
+    width:80%;
+    min-width:300px;
+    margin:0 auto;
+    font-family:$font-backup;
+    text-align:center;
+    color:$color-white;
+    h1 {
+        font-size:4rem;
+        font-family:$font-heading;
+    }
+    p {
+        font-size:1.35rem;
+        margin-top:.5em;
+    }
+}

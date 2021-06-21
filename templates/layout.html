@@ -9,28 +9,67 @@
 
     <title>{{title}}</title>
 
+    <!-- favicon -->
+    <link rel="shortcut icon" href="{{url_for('static',filename='Images/favicon.ico')}}" type="image/x-icon">
+
     <!-- custom style sheet -->
     <link rel="stylesheet" href="{{url_for('static',filename='css/layout.css')}}">
 
+    <!-- google fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=KoHo:wght@500;700&family=Lato:wght@400;700&family=Lora:wght@500;600&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+    <!-- font awesome icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
     <!-- block for adding more style sheets  -->
     {% block stylesheets %}
     {% endblock %}
+
 </head>
 <body>
-    <header class="header">
-        <nav>
-            <ul class="navigatin__bar">
-                <li><a href="{{url_for('home')}}" class="navigation__link">Home</a></li>
-                <li><a href="{{url_for('register')}}" class="navigation__link">Register</a></li>
-                <li><a href="{{url_for('login')}}" class="navigation__link">Login</a></li>              
-            </ul>
-        </nav>
-    </header>
 
+    <nav>
+        <ul class="navigation__bar">
+            <li><a href="{{url_for('home')}}" class="navigation__link">Home</a></li>
+            <li><a href="{{url_for('register')}}" class="navigation__link">Register</a></li>
+            <li><a href="{{url_for('login')}}" class="navigation__link">Login</a></li>              
+        </ul>
+    </nav>
 
+    <!-- message flashing section -->
+    {% with messages=get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for cate,msg in messages %}
+                <div class="message__container {{cate}}__container">
+                    <span class="{{cate}}__msg">{{msg}}</span>
+                    <button class="message__close__btn" type="button">X</button>
+                </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
 
+    
     {% block body %}
     {% endblock %}
+
+    <footer class="footer">
+        <div class="social__links">
+            <a href="#" class="social__link"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="social__link"><i class="fab fa-github"></i></a>
+            <a href="#" class="social__link"><i class="fab fa-codepen"></i></a>
+            <a href="#" class="social__link"><i class="fab fa-instagram"></i></a>
+        </div>
+
+        <div class="contact__details">
+            <a href="tel:+919122109422" class="contact"><i class="fa fa-phone"></i>+919122109422</a>
+            <a href="mailto:rahulkumar109422@gmail.com" class="contact"><i class="fa fa-paper-plane"></i>rahulkumar109422@gmail.com</a>
+        </div>
+
+        <div class="copyright">
+            <p>&copy;copyright reserved by Rahul Kumar</p>
+        </div>
+    </footer>
     {% block scripts %}
     {% endblock %}
 </body>

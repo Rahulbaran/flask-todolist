@@ -1,0 +1,120 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; }
+
+body {
+  font: 400 1rem/1.6 "Poppins", sans-serif;
+  background-color: #fcedcf; }
+
+nav {
+  padding: .6em;
+  background-color: #40bf80; }
+  nav li {
+    margin: 0 .5em; }
+
+.navigation__bar {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  font-family: "Lora", sans-serif;
+  list-style-type: none; }
+
+.navigation__link {
+  display: inline-block;
+  text-decoration: none;
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #fff;
+  padding: .4em; }
+  .navigation__link:hover, .navigation__link:focus {
+    opacity: .6; }
+
+.footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: stretch;
+  font-family: 'Lato',sans-serif;
+  background-color: #409bbf; }
+
+.social__links {
+  text-align: center;
+  padding: 2em 1em 1em; }
+
+.social__link {
+  display: inline-block;
+  text-decoration: none;
+  margin: 0 .4em; }
+  .social__link i {
+    font-size: 1.8rem;
+    color: #181818;
+    background-color: #fff;
+    padding: .3em;
+    box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.3) inset;
+    border-radius: 50%; }
+  .social__link .fa-instagram {
+    padding: .3em .4em; }
+
+.contact__details {
+  margin: 1em 1.3em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start; }
+  .contact__details a {
+    text-decoration: none;
+    font-size: 1.2rem;
+    color: #fff;
+    line-height: 1.4; }
+    .contact__details a i {
+      margin-right: .5em; }
+  .contact__details a:nth-of-type(1) {
+    margin-bottom: .5em; }
+
+.copyright {
+  margin-top: 1em;
+  text-align: center;
+  padding: .6em;
+  background-color: #176085;
+  color: #fff;
+  font-size: 1.15rem;
+  letter-spacing: .4px; }
+
+.message__container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: .5em; }
+
+.message__close__btn {
+  margin-left: auto;
+  margin-right: 2em;
+  background-color: transparent;
+  border: none;
+  color: black;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer; }
+
+.info__container {
+  background-color: #d6ceff; }
+
+.warning__container {
+  background-color: #ffcece; }
+
+.info__msg {
+  text-align: Center;
+  width: 100%;
+  color: #040479;
+  font-size: 1.1rem; }
+
+.warning__msg {
+  text-align: Center;
+  width: 100%;
+  color: #791b04;
+  font-size: 1.1rem; }

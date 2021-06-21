@@ -1,0 +1,163 @@
+$color-white:#fff;
+$body-bg:hsl(40deg,90%,90%);
+$nav-bg:hsl(150deg,50%,50%);
+$font-general:'Poppins',sans-serif;
+$font-navigation:'Lora',sans-serif;
+
+
+$font-weight: (
+    'regular':400,
+    'medium':500,
+    'semi':600,
+    'bold':700
+);
+
+
+*,
+*::after,
+*::before {
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body {
+    font:map-get($font-weight,regular) 1rem/1.6 $font-general;
+    background-color:$body-bg;
+}
+
+nav {
+    padding:.6em;
+    background-color:$nav-bg;
+
+    li {
+        margin:0 .5em;
+    }
+}
+
+@mixin flex($just,$align,$dir:row) {
+    display:flex;
+    flex-direction:$dir;
+    justify-content:$just;
+    align-items:$align;
+}
+
+.navigation {
+    &__bar {
+        @include flex(flex-end,center);
+        font-family:$font-navigation;
+        list-style-type:none;
+    }
+    &__link {
+        display:inline-block;
+        text-decoration:none;
+        font-size:1.2rem;
+        font-weight:map-get($font-weight,medium);
+        color:$color-white;
+        padding:.4em;
+
+        &:hover,
+        &:focus {
+            opacity:.6;
+        }
+    }
+}
+
+
+.footer {
+    @include flex(center,stretch,column);
+    font-family: 'Lato',sans-serif;
+    background-color:rgb(64, 155, 191);
+}
+.social{
+    &__links {
+        text-align:center;
+        padding:2em 1em 1em;
+    }
+    &__link {
+        display:inline-block;
+        text-decoration: none;
+        margin:0 .4em;
+
+        i {
+            font-size:1.8rem;
+            color:rgb(24,24,24);
+            background-color:$color-white;
+            padding:.3em;
+            box-shadow:2px 2px 3px rgba(0,0,0,.3) inset;
+            border-radius: 50%;
+        }
+        .fa-instagram {
+            padding:.3em .4em;
+        }
+    }
+}
+.contact__details {
+    margin:1em 1.3em;
+    @include flex(center,flex-start,column);
+
+    a {
+        text-decoration: none;
+        font-size:1.2rem;
+        color: $color-white;
+        line-height:1.4;
+
+        i {
+            margin-right:.5em;
+        }
+    }
+    a:nth-of-type(1) {
+        margin-bottom: .5em;
+    }
+}
+.copyright {
+    margin-top:1em;
+    text-align:center;
+    padding:.6em;
+    background-color:rgb(23, 96, 133);
+    color:#fff;
+    font-size:1.15rem;
+    letter-spacing:.4px;
+}
+
+
+
+
+
+
+// message flashing section
+@mixin msg ($color) {
+    text-align:Center;
+    width:100%;
+    color:$color;
+    font-size:1.1rem;
+}
+
+.message {
+    &__container {
+        @include flex(center,center);
+        padding:.5em;
+    }
+    &__close__btn {
+        margin-left:auto;
+        margin-right:2em;
+        background-color:transparent;
+        border:none;
+        color:black;
+        font-weight:600;
+        font-size:1rem;
+        cursor:pointer;
+    }
+}
+.info__container {
+    background-color:rgb(214, 206, 255);
+}
+.warning__container {
+    background-color:rgb(255, 206, 206);
+}
+.info__msg {
+    @include msg(rgb(4, 4, 121));
+}
+.warning__msg {
+    @include msg(rgb(121, 27, 4));
+} 

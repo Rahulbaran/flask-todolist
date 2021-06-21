@@ -4,10 +4,10 @@
   "description": "Todolist app using flask",
   "main": "index.js",
   "scripts": {
-    "compile-layout":"node-sass static/scss/layout.scss static/css/layout.scss",
-    "compile-home":"node-sass static/scss/home.scss static/css/home.scss",
-    "compile-login":"node-sass static/scss/login.scss static/css/login.scss",
-    "compile-register":"node-sass static/scss/register.scss static/css/register.scss"
+    "compile-layout":"node-sass static/scss/layout.scss static/css/layout.css -w",
+    "compile-home":"node-sass static/scss/home.scss static/css/home.css -w",
+    "compile-login":"node-sass static/scss/login.scss static/css/login.css -w",
+    "compile-register":"node-sass static/scss/register.scss static/css/register.css -w"
   },
   "repository": {
     "type": "git",

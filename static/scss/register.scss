@@ -1,0 +1,119 @@
+.form--section {
+    background-color:#fff;
+    border-radius:6px;
+    padding:2em 1em;
+    font-family: 'lato',sans-serif;
+}
+.form {
+    width:350px;
+    margin:0 auto;
+    margin-bottom:.5em;
+    padding:.9em;
+    box-shadow: 0 0 2px rgba(0,0,0,.3);
+    border-radius: 5px;
+
+    legend {
+        text-align: center;
+        font-size: 1.8rem;
+        font-family: 'Koho',sans-serif;
+        margin-bottom: .5em;
+        font-weight: 600;
+        line-height: 1;
+        color:rgb(216, 134, 10);
+        
+    }
+    &__group {
+        display: flex;
+        flex-flow: column;
+        justify-content: center;
+        align-items: flex-start;
+        margin-bottom: .4em;
+
+        label {
+            font-size: 1.2rem;
+        }
+        input{
+            width:100%;
+            padding:.55em .45em;
+            font-size: 1.05rem;
+            font-family: 'lato',sans-serif;
+            border: 1px solid rgb(148, 148, 156);
+            transition: transform 200ms linear;
+            border-radius:5px;
+
+            &:focus {
+                outline: .1em solid rgb(2, 18, 39);
+            }
+            &:active {
+                transform: translateY(-2px);
+            }
+        }
+    }
+    &__submit {
+        margin-top:1em;
+
+        input {
+            font-family: 'lato',sans-serif;
+            font-size: 1.1rem;
+            padding:.6em 1.7em;
+            border: none;
+            background-color:rgb(125, 127, 139);
+            box-shadow: 2px 2px 1px rgba(0,0,0,.65);
+            color: #fff;
+            font-weight: 600;
+            letter-spacing: .5px;
+
+            &:hover,&:focus {
+                opacity: .85;
+                cursor:pointer;
+            }
+        }
+    }
+}
+.login__section {
+    width:350px;
+    margin:0 auto;
+
+    p {
+        font-size: 1.15rem;
+        line-height:1.2;
+    }
+    .login {
+        font-weight:600;
+        text-decoration: none;
+        color:rgb(255, 123, 0);
+
+        &:hover,&:focus {
+            text-decoration:2px underline;
+        }
+    }
+}
+
+
+@media screen and (min-width:600px) {
+    .form {
+        width:500px;
+        padding:1.2em;
+
+    }
+    .login__section {
+        width:500px;
+    }
+}
+
+
+
+// input field error related styles
+.field__error {
+    border-color:red !important;
+
+    &:focus {
+        outline-color:red!important;
+    }
+}
+.error__msg {
+    font-size:.76rem;
+    color:red;
+    line-height:1.4;
+    font-weight:500;
+}

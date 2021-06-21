@@ -1,8 +1,74 @@
 {% extends 'layout.html' %}
 {% block stylesheets %}
+<link rel="stylesheet" href="{{url_for('static',filename='css/register.css')}}">
 {% endblock %}
 
 {% block body %}
+    <section class="form--section">
+        <form method="post" class="form" autocomplete="off">
+            
+            {{form.hidden_tag()}}
+
+            <legend>Register Yourself</legend>
+
+            <div class="form__group">
+                {{form.username.label()}}
+                {% if form.username.errors %}
+                    {{form.username(class="field__error")}}
+                    {% for error in form.username.errors %}
+                        <span class="error__msg">{{error}}</span>
+                    {% endfor %}
+                {% else %}
+                    {{form.username(placeholder="enter an username")}}
+                {% endif %}
+            </div>
+
+            <div class="form__group">
+                {{form.email.label()}}
+                {% if form.email.errors %}
+                    {{form.email(class="field__error")}}
+                    {% for error in form.email.errors %}
+                        <span class="error__msg">{{error}}</span>
+                    {% endfor %}
+                {% else %}
+                    {{form.email(placeholder="enter your email address")}}
+                {% endif %}
+            </div>
+
+            <div class="form__group">
+                {{form.password.label()}}
+                {% if form.password.errors %}
+                    {{form.password(class="field__error")}}
+                    {% for error in form.password.errors %}
+                        <span class="error__msg">{{error}}</span>
+                    {% endfor %}
+                {% else %}
+                    {{form.password(placeholder="enter a password")}}
+                {% endif %}
+            </div>
+
+            <div class="form__group">
+                {{form.reenter__password.label()}}
+                {% if form.reenter__password.errors %}
+                    {{form.reenter__password(class="field__error")}}
+                    {% for error in form.reenter__password.errors %}
+                        <span class="error__msg">{{error}}</span>
+                    {% endfor %}
+                {% else %}
+                    {{form.reenter__password(placeholder="re-enter password")}}
+                {% endif %}
+            </div>
+
+            <div class="form__submit">
+                {{form.register()}}
+            </div>
+
+        </form>
+        <div class="login__section">
+            <p>Already have an account, <a href="/login" class="login">login now</a></p>
+        </div>
+    </section>
+    
 {% endblock %}
 
 {% block scripts %}

@@ -1,0 +1,23 @@
+{% extends 'layout.html' %}
+{% block stylesheets %}
+<link rel="stylesheet" href="{{url_for('static',filename='css/home.css')}}">
+{% endblock %}
+
+{% block body %}
+<main class="main--section">
+
+    <section class="about__app">
+        <h1>Welcome</h1>
+        <p>
+            This is a todo list app where you can create your
+            own todo list after registering and logging yourself 
+            on the app also the added items can be deleted and edited.
+            The app was created as a fun project, So give it a try people.
+        </p>
+    </section>
+
+</main>
+{% endblock %}
+
+{% block scripts %}
+{% endblock %}

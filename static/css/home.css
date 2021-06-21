@@ -1,0 +1,23 @@
+.main--section {
+  background: linear-gradient(-190deg, rgba(50, 58, 87, 0.886), rgba(0, 0, 0, 0.94), rgba(64, 74, 82, 0.957)), url("../Images/3327597.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+
+.about__app {
+  width: 80%;
+  min-width: 300px;
+  margin: 0 auto;
+  font-family: "lato", sans-serif;
+  text-align: center;
+  color: #fff; }
+  .about__app h1 {
+    font-size: 4rem;
+    font-family: "KoHo", sans-serif; }
+  .about__app p {
+    font-size: 1.35rem;
+    margin-top: .5em; }
