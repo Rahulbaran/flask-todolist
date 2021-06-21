@@ -1,0 +1,51 @@
+{% extends 'layout.html' %}
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{url_for('static',filename='css/profile.css')}}">
+{% endblock %}
+
+{% block body %}
+    <main class="profile__section">
+
+        <section class="about__user">
+            <div class="user__profile__container">
+                <img src="../static/Images/default.png" alt="User Profile" class="profile__image">
+            </div>
+            <div class="user__other__details">
+                <h2>{{current_user.username}}</h2>
+                <p>{{current_user.email}}</p>
+                <p>{{current_user.user_info}}</p>
+            </div>
+        </section> 
+
+        <section class="form__section">
+            <form autocomplete="off" method="POST" class="form">
+
+                {{form.hidden_tag()}}
+                <legend>Update Profile</legend>
+
+                <div class="form__group">
+                    {{form.username.label()}}
+                    {{form.username()}}
+                </div>
+
+                <div class="form__group">
+                    {{form.email.label()}}
+                    {{form.email()}}
+                </div>
+
+                <div class="form__group">
+                    {{form.userInfo.label()}}
+                    {{form.userInfo()}}
+                </div>
+
+                <div class="form__submit">
+                    {{form.update()}}
+                </div>
+            </form>
+        </section>
+
+    </main>     
+{% endblock %}
+
+{% block scripts %}
+{% endblock %}

@@ -4,6 +4,3 @@ node_modules
 #lock-json file
 package-lock.json
 
-
-# database
-items.db

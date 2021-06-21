@@ -1,0 +1,11 @@
+@mixin flex($just,$align,$dir:row) {
+    display:flex;
+    flex-direction:$dir;
+    justify-content:$just;
+    align-items:$align;
+}
+
+.profile__section {
+    background-color:#fff;
+    @include flex(center,center,column);
+}

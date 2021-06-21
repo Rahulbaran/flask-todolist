@@ -21,7 +21,8 @@ nav {
   justify-content: flex-end;
   align-items: center;
   font-family: "Lora", sans-serif;
-  list-style-type: none; }
+  list-style-type: none;
+  margin-right: 3em; }
 
 .navigation__link {
   display: inline-block;
@@ -32,6 +33,47 @@ nav {
   padding: .4em; }
   .navigation__link:hover, .navigation__link:focus {
     opacity: .6; }
+
+.navigation__tab {
+  position: relative; }
+  .navigation__tab .Profile__picture__container {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%; }
+  .navigation__tab .user__profile {
+    max-width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    border-radius: 50%; }
+  .navigation__tab i {
+    position: absolute;
+    top: 15px;
+    right: -20px;
+    font-size: 1.2rem;
+    cursor: pointer; }
+  .navigation__tab .nav__bar {
+    position: absolute;
+    top: 59px;
+    left: -40px;
+    right: -66px;
+    background-color: #40bf80;
+    list-style-type: none;
+    text-align: center;
+    border-top: 2px solid #43e21c;
+    padding: .5em 0;
+    clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+    opacity: 0;
+    transition: clip-path 200ms,opacity 300ms; }
+  .navigation__tab .nav__link {
+    display: block;
+    text-decoration: none;
+    padding: .35em .3em;
+    color: #fff;
+    font-family: "Lora", sans-serif;
+    font-size: 1.2rem; }
+    .navigation__tab .nav__link:hover, .navigation__tab .nav__link:focus {
+      opacity: .6; }
 
 .footer {
   display: flex;

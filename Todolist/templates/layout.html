@@ -32,8 +32,22 @@
     <nav>
         <ul class="navigation__bar">
             <li><a href="{{url_for('home')}}" class="navigation__link">Home</a></li>
-            <li><a href="{{url_for('register')}}" class="navigation__link">Register</a></li>
-            <li><a href="{{url_for('login')}}" class="navigation__link">Login</a></li>              
+            {% if current_user.is_authenticated %}
+                <li><a href="{{url_for('list')}}" class="navigation__link">List</a></li>
+                <li class="navigation__tab">
+                    <div class="Profile__picture__container">
+                        <img src="../static/Images/default.png" alt="Profile Picture" class="user__profile">
+                    </div>
+                    <i class="fa fa-angle-down"></i>
+                    <ul class="nav__bar">
+                        <li><a href="{{url_for('profile')}}" class="nav__link">Profile</a></li>
+                        <li><a href="{{url_for('logout')}}" class="nav__link">Logout</a></li>
+                    </ul>
+                </li>
+            {% else %}
+                <li><a href="{{url_for('register')}}" class="navigation__link">Register</a></li>
+                <li><a href="{{url_for('login')}}" class="navigation__link">Login</a></li>     
+            {% endif %}         
         </ul>
     </nav>
 
@@ -70,6 +84,40 @@
             <p>&copy;copyright reserved by Rahul Kumar</p>
         </div>
     </footer>
+
+    <script>
+
+        // message related event handler
+        let msgContainer, msgCloseBtn;
+        msgContainer = document.querySelector('.message__container');
+        msgCloseBtn = document.querySelector('.message__close__btn');
+
+        if(msgContainer) {
+            msgCloseBtn.addEventListener('click',() =>  {
+                msgContainer.style.display = 'none';
+        });
+        }
+
+        // navigation related event handler
+        let navigationBtn, navBar, navTracker;
+        navigationBtn = document.querySelector('.fa-angle-down');
+        navBar = document.querySelector('.nav__bar');
+        navTracker = true;
+
+        navigationBtn.addEventListener('click',() => {
+            if(navTracker) {
+                navBar.style.clipPath = 'polygon(0 0,100% 0,100% 100%,0 100%)';
+                navBar.style.opacity = 1;
+                navTracker = false;
+            } else {
+                navBar.style.clipPath = 'polygon(0 0,100% 0,100% 0,0 0)';
+                navBar.style.opacity = 0;
+                navTracker = true;
+            }
+        });
+
+    </script>
+    
     {% block scripts %}
     {% endblock %}
 </body>
