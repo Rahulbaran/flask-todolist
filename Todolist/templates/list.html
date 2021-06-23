@@ -21,6 +21,7 @@
         <table class="list__items__table">
             <thead>
                 <tr>
+                    <th>#</th>
                     <th>Item name</th>
                     <th>Date added</th>
                     <th>Delete Item</th>
@@ -29,6 +30,7 @@
             <tbody>
                 {% for item in items %}
                 <tr>
+                    <td>{{loop.index}}.</td>
                     <td>{{item.item_name}}</td>
                     <td>{{item.date_posted.strftime('%Y/%m/%d')}}</td>
                     <td>
