@@ -1,7 +1,7 @@
 # flask-todolist
 <h3>👋 Hi everyone , This is a to do list app where I have used HTML, CSS(mainly SCSS) for fronte, Flask for backend (Some JavaScript codes are also here to handle events) and SQLite as database.</h3>
 
-<ol>There are following features of the app:-
-<li> You can create your own account and after registering & logging in you will be able to add new items in the to do list.</li>
-<li>You are also free to customize your account page like uploading a picture ,changing username and email address etc.</li>
-</ol>
+<ul>There are following features of the app:-
+  <li> You can create your own account and after registering & logging in you will be able to add new items in the to do list.</li>
+  <li>You are also free to customize your account page like uploading a picture ,changing username and email address etc.</li>
+</ul>
