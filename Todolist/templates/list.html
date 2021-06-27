@@ -24,24 +24,46 @@
                     <th>#</th>
                     <th>Item name</th>
                     <th>Date added</th>
-                    <th>Delete Item</th>
+                    <th>Delete/Edit Item</th>
                 </tr>
             </thead>
             <tbody>
-                {% for item in items %}
+                {% for item in items.items %}
                 <tr>
-                    <td>{{loop.index}}.</td>
+                    <td>{{loop.index + (items.page - 1)*10}}.</td>
                     <td>{{item.item_name}}</td>
                     <td>{{item.date_posted.strftime('%Y/%m/%d')}}</td>
-                    <td>
+                    <td class="item__btns">
                         <form action="{{url_for('delete_item',item_id=item.id)}}" method="post">
-                            <input type="submit" value="Delete" class="item__delete__btn">
+                            <input type="submit" value="Delete" class="item__delete__btn item__btn">
+                        </form>       
+                        <form action="" method="post">
+                            <input type="submit" value="Edit" class="item__edit__btn item__btn">
                         </form>
                     </td>
                 </tr>
                 {% endfor %}
             </tbody>
         </table>
+
+        <!-- pagination section -->
+        <section class="list--items">
+            <ul>
+                {% for page_num in items.iter_pages(left_edge=1, right_edge=1, left_current=1, right_current=2) %}
+                    {% if page_num %}
+                        <li class="list__item__page">
+                            {% if items.page == page_num %}
+                                <a href="{{url_for('list',page = page_num)}}" class="current__page">{{page_num}}</a>
+                            {% else %}
+                                <a href="{{url_for('list',page = page_num)}}" class="other__page">{{page_num}}</a>
+                            {% endif %}
+                        </li>
+                    {% else %}
+                        ....
+                    {% endif %}
+                {% endfor %}
+            </ul>
+        </section>
     </main>
 {% endblock %}
 

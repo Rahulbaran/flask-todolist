@@ -11,7 +11,7 @@ body {
 
 nav {
   padding: .6em;
-  background-color: #40bf80; }
+  background-color: yellow; }
   nav li {
     margin: 0 .5em; }
 
@@ -20,17 +20,18 @@ nav {
   flex-direction: row;
   justify-content: flex-end;
   align-items: center;
-  font-family: "Lora", sans-serif;
+  font-family: "Poppins", sans-serif;
   list-style-type: none;
   margin-right: 3em; }
 
 .navigation__link {
   display: inline-block;
   text-decoration: none;
-  font-size: 1.2rem;
+  font-size: 1.25rem;
   font-weight: 500;
-  color: #fff;
-  padding: .4em; }
+  color: black;
+  padding: .4em;
+  font-weight: 500; }
   .navigation__link:hover, .navigation__link:focus {
     opacity: .6; }
 
@@ -57,10 +58,10 @@ nav {
     top: 59px;
     left: -40px;
     right: -66px;
-    background-color: #40bf80;
+    background-color: yellow;
     list-style-type: none;
     text-align: center;
-    border-top: 2px solid #43e21c;
+    border-top: 2px solid #a7af05;
     padding: .5em 0;
     clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
     opacity: 0;
@@ -69,11 +70,11 @@ nav {
     display: block;
     text-decoration: none;
     padding: .35em .3em;
-    color: #fff;
-    font-family: "Lora", sans-serif;
+    color: #575961;
+    font-family: "Poppins", sans-serif;
     font-size: 1.2rem; }
     .navigation__tab .nav__link:hover, .navigation__tab .nav__link:focus {
-      opacity: .6; }
+      opacity: .5; }
 
 .footer {
   display: flex;

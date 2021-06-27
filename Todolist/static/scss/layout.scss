@@ -1,8 +1,9 @@
 $color-white:#fff;
 $body-bg:hsl(40deg,90%,90%);
-$nav-bg:hsl(150deg,50%,50%);
+$nav-bg:rgb(255, 255, 0);
 $font-general:'Poppins',sans-serif;
-$font-navigation:'Lora',sans-serif;
+$font-navigation:'Poppins',sans-serif;
+
 
 
 $font-weight: (
@@ -52,10 +53,11 @@ nav {
     &__link {
         display:inline-block;
         text-decoration:none;
-        font-size:1.2rem;
+        font-size:1.25rem;
         font-weight:map-get($font-weight,medium);
-        color:$color-white;
+        color:black;
         padding:.4em;
+        font-weight:500;
 
         &:hover,
         &:focus {
@@ -90,7 +92,7 @@ nav {
             background-color:$nav-bg;
             list-style-type:none;
             text-align:center;
-            border-top:2px solid rgb(67, 226, 28);
+            border-top:2px solid rgb(167, 175, 5);
             padding:.5em 0;
             clip-path:polygon(0 0,100% 0,100% 0,0 0);
             opacity:0;
@@ -100,13 +102,13 @@ nav {
             display:block;
             text-decoration:none;
             padding:.35em .3em;
-            color:$color-white;
+            color:rgb(87, 89, 97);
             font-family:$font-navigation;
             font-size:1.2rem;
 
             &:hover,
             &:focus {
-                opacity:.6;
+                opacity:.5;
             }
         }
     }

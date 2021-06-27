@@ -97,7 +97,8 @@ def list():
         db.session.commit()
         flash('A new item has been added','info')
         return redirect(url_for('list'))
-    items = Item.query.filter_by(user_id = current_user.id).all()
+    page = request.args.get('page', 1, type = int)
+    items = Item.query.filter_by(user_id = current_user.id).paginate(page = page, per_page = 10)
     return render_template('list.html', title = 'Add Items', form = form, items = items)
 
 

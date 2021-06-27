@@ -46,7 +46,12 @@
     padding: .2em .6em;
     font-size: 1rem; }
 
-.item__delete__btn {
+.item__btns {
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+
+.item__btn {
   padding: .2em .3em;
   font-size: .9rem;
   font-family: 'Poppins',sans-serif;
@@ -54,6 +59,43 @@
   background-color: #d8d8d8;
   border: none;
   box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); }
-  .item__delete__btn:hover, .item__delete__btn:focus {
-    opacity: .85;
+  .item__btn:hover, .item__btn:focus {
+    opacity: .7;
     cursor: pointer; }
+
+.item__delete__btn {
+  margin-right: .6em; }
+
+.item__edit__btn {
+  padding: .2em .8em; }
+
+.list--items {
+  margin-top: 2em;
+  text-align: center; }
+  .list--items ul {
+    display: flex;
+    align-items: Center;
+    justify-content: center;
+    list-style-type: none; }
+
+.list__item__page {
+  width: 40px;
+  margin: 0 .4em; }
+  .list__item__page a {
+    font-size: 1.15rem;
+    text-decoration: none;
+    display: inline-block;
+    width: 100%;
+    border-radius: 4px;
+    font-weight: 600; }
+
+.current__page {
+  border: 2px solid #0569ed;
+  background-color: #0569ed;
+  color: #fff; }
+
+.other__page {
+  border: 2px solid #006eff;
+  color: #179bc4; }
+  .other__page:hover, .other__page:focus {
+    opacity: .65; }
